@@ -46,3 +46,60 @@ JOIN Brands b ON cm.BrandID = b.BrandID;
 Функция Get_Sales_Report() - фильтрация отчета по параметрам
 
 Использование функции:
+
+-- Все продажи
+SELECT * FROM Get_Sales_Report();
+
+-- Продажи Toyota за март 2024
+SELECT * FROM Get_Sales_Report(
+    p_start_date => '2024-03-01',
+    p_end_date => '2024-03-31',
+    p_brand_name => 'Toyota'
+);
+
+⚡ Лабораторная 4: Анализ производительности
+Цель: Оптимизировать запросы через индексы и анализ планов выполнения.
+
+Генерация тестовых данных:
+Создано 20 000+ записей в основных таблицах
+
+Разработаны функции генерации случайных данных
+
+Созданные индексы:
+
+
+CREATE INDEX idx_sales_saledate ON Sales(sale_date);
+CREATE INDEX idx_sales_customerid ON Sales(customerid);
+CREATE INDEX idx_cars_modelid ON Cars(modelid);
+-- и другие...
+
+<img width="867" height="265" alt="image" src="https://github.com/user-attachments/assets/ea3f447c-2759-4c44-9e62-4087a0f0d56c" />
+
+Лабораторная 5: Триггеры
+Цель: Реализовать каскадное удаление и систему аудита изменений.
+
+Созданные объекты:
+Таблица Change_Log - журнал всех изменений
+
+Триггер trigger_log_sales_changes - автоматическое журналирование
+
+Триггер trigger_cascade_delete_brand - каскадное удаление
+
+Пример работы триггеров:
+
+-- При удалении бренда автоматически удаляются все его модели
+DELETE FROM Brands WHERE BrandID = 1;
+
+-- Все изменения в таблице Sales фиксируются в Change_Log
+INSERT INTO Sales (...) VALUES (...);
+
+Технологический стек
+СУБД: PostgreSQL 15+
+
+Интерфейс: pgAdmin 4
+
+Язык: SQL, PL/pgSQL
+
+Как развернуть проект
+Создать схему в PostgreSQL:
+
