@@ -35,8 +35,8 @@ FROM Sales s
 JOIN Customers c ON s.CustomerID = c.CustomerID
 JOIN Cars car ON s.CarID = car.CarID
 JOIN CarModels cm ON car.ModelID = cm.ModelID
-JOIN Brands b ON cm.BrandID = b.BrandID;
-
+JOIN Brands b ON cm.BrandID = b.BrandID; 
+```
  Лабораторная 3: Представления и функции
 Цель: Создать виртуальные представления и параметризованные функции.
 
@@ -46,7 +46,7 @@ JOIN Brands b ON cm.BrandID = b.BrandID;
 Функция Get_Sales_Report() - фильтрация отчета по параметрам
 
 Использование функции:
-
+```sql
 -- Все продажи
 SELECT * FROM Get_Sales_Report();
 
@@ -56,7 +56,7 @@ SELECT * FROM Get_Sales_Report(
     p_end_date => '2024-03-31',
     p_brand_name => 'Toyota'
 );
-
+```
 ⚡ Лабораторная 4: Анализ производительности
 Цель: Оптимизировать запросы через индексы и анализ планов выполнения.
 
@@ -67,11 +67,12 @@ SELECT * FROM Get_Sales_Report(
 
 Созданные индексы:
 
-
+```sql
 CREATE INDEX idx_sales_saledate ON Sales(sale_date);
 CREATE INDEX idx_sales_customerid ON Sales(customerid);
 CREATE INDEX idx_cars_modelid ON Cars(modelid);
 -- и другие...
+```
 
 <img width="867" height="265" alt="image" src="https://github.com/user-attachments/assets/ea3f447c-2759-4c44-9e62-4087a0f0d56c" />
 
