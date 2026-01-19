@@ -4,6 +4,7 @@
 
 
 <img width="734" height="462" alt="image" src="https://github.com/user-attachments/assets/9afba545-38fe-4dd3-824e-1678a590efcb" />
+<img width="1057" height="682" alt="image" src="https://github.com/user-attachments/assets/d3bc45e4-6f5b-42f8-b57f-884a473d7287" />
 
 
 1.2. DDL-скрипты создания таблиц
